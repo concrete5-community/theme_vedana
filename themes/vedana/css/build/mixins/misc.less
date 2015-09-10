@@ -1,0 +1,15 @@
+.zero-list () {
+	list-style: none;
+	.zero-space();
+}
+.zero-space () {
+	margin: 0;
+	padding: 0;	
+}
+
+// -- Color Mixins --- \\
+
+// Set absolute Luminance on a color
+.light(@col; @value : 95%; @prop: background-color) {
+    @{prop} : hsl(hue(@col),saturation(@col),@value);
+}

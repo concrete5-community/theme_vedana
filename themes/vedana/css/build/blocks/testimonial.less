@@ -1,0 +1,131 @@
+.ch-grid {
+    // recois les regles de .flex-box
+}
+.ch-grid-inner {
+    // Recois les les regles de .flex-box > .content
+    margin: 20px;        
+} 
+
+.ch-item {
+    border-radius: 50%;
+    cursor: default;
+
+    &:hover .ch-info-wrap {
+        box-shadow: 0 0 0 0 rgba(255,255,255,0.8);
+    }
+
+    &:hover .ch-info {
+        .transform(rotate3d(0,1,0,-180deg));
+    }
+}
+.ch-bg-img {
+       background-position: center center; 
+}
+.ch-info-wrap{
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+
+    .perspective (800px);
+    .transition(all 0.4s ease-in-out);
+
+    top: 10%;
+    left: 10%;
+    background: @brand-white-color;
+    box-shadow: 0 0 0 @space-s rgba(255,255,255,0.2);
+
+}
+
+.ch-info{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+
+    .transition (all 0.4s ease-in-out);
+    .transform-style (preserve-3d);
+
+    & > div { // front & back ou juste FRONT ?
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+
+        .backface-visibility (hidden);
+    }
+    .ch-info-back {
+        .transform (rotate3d(0,1,0,180deg));
+        background: @brand-primary-color;
+    }
+
+    h6,p,a {
+        display: block;
+        text-align: center;
+        margin: 0;
+        color:@brand-primary-text-color;
+    }
+    h6 {
+        margin-top: 10%;
+    }
+    .text {
+        margin-top: @space-xs;
+        padding: 0 @space-s;
+    }
+
+
+}
+
+
+
+
+.ved-list-block.testimonial {
+    p.position, p.company {
+        padding: 0 0 0 @space-m;
+    }
+}
+
+
+
+
+.tm-wrapper {
+    .desc {
+        text-transform: none;
+        font-weight: @body-type-font-weight;
+        // color: @body-type-color !important; // Override box-framed
+        line-height: 1.5;
+    }
+    .details {
+        .image {
+            max-width: 150px;
+            max-height: 150px;
+            border-radius: 100%;
+            margin: @space-s auto;
+            overflow: hidden;
+        }
+        text-align: center;
+        p {
+            font-size: @font-size-small;
+            // color: @gray;
+        }
+        h5,p {
+            margin: 0;
+        }   
+    }
+}
+.tm-wrapper.tm-small {
+    .box-arrow:after {
+        left: 100px;
+    }
+    .image {
+        max-width: 80px;
+        max-height: 80px;
+        float: left;
+    }
+    .infos {
+        text-align: left;
+        padding: @space-s 0 0 80+@space-s;
+    }
+}
+

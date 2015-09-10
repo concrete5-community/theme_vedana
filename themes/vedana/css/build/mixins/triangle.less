@@ -1,0 +1,59 @@
+.triangle-base (){
+	content: "";
+	width: 0;
+	height: 0;
+	border-style: solid;
+}
+
+// -- Triangle Geometry -- \\
+
+.triangle-top (@width ; @color) {
+	.triangle-base();
+	border-width: 0 @width @width @width;
+	border-color: transparent transparent @color transparent;	
+}
+.triangle-bottom (@width ; @color) {
+	.triangle-base();
+	border-width: @width (@width) 0 (@width);
+	border-color: @color transparent transparent transparent;	
+}
+.triangle-left (@width ; @color) {
+	.triangle-base();
+	border-width: (@width / 2) @width (@width / 2) 0;
+	border-color: transparent @color transparent transparent;	
+}
+.triangle-right (@width ; @color) {
+	.triangle-base();
+	border-width:  (@width) 0 (@width ) @width;
+	border-color: transparent transparent transparent @color;	
+}
+.triangle-bottom-left(@width ; @color) {
+	.triangle-base();
+	border-width:  @width 0 0 @width;
+	border-color: transparent transparent transparent @color;		
+}
+.triangle-top-right(@width ; @color) {
+	.triangle-base();
+	border-width:  0 @width @width 0;
+	border-color: transparent @color transparent transparent;		
+}
+.triangle-top-left(@width ; @color) {
+	.triangle-base();
+	border-width:  @width @width 0 0;
+	border-color:  @color transparent transparent transparent;		
+}
+
+// -- Psecial Vedana --\\
+
+.triangle-right-compressed (@color) {
+	.triangle-base();
+	border-width: 30px 0 30px 17px;
+	border-color: transparent transparent transparent @color;
+
+}
+.triangle-left-compressed (@color) {
+	.triangle-base();
+	border-width: 30px 17px 30px 0;
+	border-color: transparent @color transparent transparent;
+
+}

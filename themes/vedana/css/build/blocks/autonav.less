@@ -1,0 +1,180 @@
+#footer-theme .nav {
+	.zero-list();
+	text-transform: uppercase;
+}
+.main-nav {
+    ul.nav {
+        list-style: none;
+        padding: 0;
+        text-align: right;
+        & > li {
+            display: inline-block;
+            margin-top: -@space-xxs; // -9
+            & > a {
+                display: block;
+                position: relative;
+                height: @space-m + @space-xxs; // 42 + 9
+                
+                padding: @space-s @space-xs 0 @space-xs ; // 23
+                text-transform: uppercase;
+                color: @brand-black-color;
+
+                &.nav-selected, &.nav-path-selected, &.active {
+                    background-color: @brand-primary-color;
+                    color: @brand-primary-text-color;
+                    &:after {
+                        .triangle-bottom-left(@space-xxs, @brand-primary-color);
+                        position: absolute;
+                        right: -@space-xxs;
+                        top: 0
+                    }
+                    &:hover {
+                        background-color: saturate(@brand-primary-color, 20%);
+                        &:after {
+                            border-color: transparent transparent transparent saturate(@brand-primary-color, 20%);
+                        }
+                    }
+
+                }
+            }   
+        }
+        ul ul {
+        	display: none;
+        }
+    }
+}
+
+ul.nav li.dropdown:hover > ul.dropdown-menu {
+  display: block;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle:focus {
+  outline: 0;
+}
+
+// The dropdown menu (ul)
+.dropdown-menu {
+  position: absolute;
+  top: @space-m + @space-xxs;
+  left: 0;
+  z-index: @zindex-dropdown;
+  display: none; 
+  float: left;
+  min-width: 160px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-size: @font-size-base;
+  text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+  background-color: @brand-light-color;
+  background-clip: padding-box;
+
+  > li {
+
+  	> a {
+	    display: block;
+	    padding: 0 @space-xs;
+	    clear: both;
+	    line-height: @space-ms;
+	    color: @brand-black-color;
+	    white-space: nowrap; // prevent links from randomly breaking onto new lines$
+	  }
+	}
+
+	&:last-child {
+		border-bottom:3px solid @brand-primary-color;
+	}
+}
+
+// Hover/Focus state
+.dropdown-menu > li > a {
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: @brand-primary-color;
+    background-color: @brand-primary-light-color;
+  }
+}
+
+// Active state
+.dropdown-menu > .active > a {
+  &,
+  &:hover,
+  &:focus {
+    color: @brand-primary-text-color;
+    text-decoration: none;
+    outline: 0;
+    background-color: @brand-primary-color;
+  }
+}
+
+// :after -> le petit '>'
+// :before -> Le triangle qui donne le relief
+.vertical-boxes {
+	li {
+		margin: 0;
+		a {
+			display: block;
+			position: relative;
+			line-height: @space-m;
+			padding-left: @space-s;
+			width:auto;
+			background-color: @brand-light-color;
+
+			.transition(all .2s ease);
+
+			&:after {
+				content: "\f105";
+				position: absolute;
+				right: @space-s;
+				line-height: @space-m;
+				font-family: FontAwesome;				
+				color: @brand-grey-color;
+			}
+
+			&:hover {
+				background-color: @brand-secondary-light-color;
+				color: @brand-secondary-color;
+				&:after {
+					color: @brand-secondary-color;
+				}
+			}
+
+			&.active {
+				background-color: @brand-secondary-color;
+				color: @brand-secondary-text-color;
+				// complications pour pouvoir etre decalé sur la gauche et en même temps de le meme largeur que les autres
+				margin-left: -@space-xxs;
+//				border-left: @space-xxs+@space-s solid #32d6ed;
+//				box-sizing: content-box;
+				padding-left: @space-xxs+@space-s ;				
+				&:before {
+					.triangle-top-right(@space-xxs,@brand-secondary-color);
+					position: absolute;
+					left: 0; 
+					bottom: -@space-xxs;
+				}
+				&:after {
+					color: @brand-secondary-text-color;
+				}
+
+				.right-sidebar & {
+					margin-left: 0;
+					margin-right: -@space-xxs;
+					padding-left: @space-s;
+					padding-right: @space-xxs+@space-s ;	
+					&:before {
+						.triangle-top-left(@space-xxs,@brand-secondary-color);
+						left: auto;
+						right: 0;
+					}
+				}
+
+			}
+		}
+	}
+}

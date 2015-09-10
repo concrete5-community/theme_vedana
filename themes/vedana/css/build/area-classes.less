@@ -1,0 +1,59 @@
+
+.header-info-wrapped {
+	text-align: right;
+}
+.space-s {
+	padding:@space-s 0  @space-s 0;	
+}
+.space-m {
+	padding:@space-m 0  @space-m 0;	
+}
+.ccm-custom-style {
+	&-pagefooter, 
+	&-main, 
+	&-main1, 
+	&-main2, 
+	&-main3, 
+	&-main4, 
+	&-headerimage,
+	&-headercontent,
+	&-footer
+		{
+			border-top: 1px solid @brand-grey-color;
+			border-bottom: 1px solid @brand-grey-color;
+			border-top-style: solid !important; // To override default area design from c5
+			border-bottom-style: solid !important; // To override default area design from c5
+			background-attachment: fixed;
+			position: static;
+			background-size: cover;		
+
+		&.primary {
+			.area-classe-mixin(@brand-primary-color; @brand-primary-text-color);
+		}
+		&.secondary {
+			.area-classe-mixin(@brand-secondary-color; @brand-secondary-text-color);
+		}
+		&.tertiary {
+			.area-classe-mixin(@brand-tertiary-color; @brand-tertiary-text-color);
+		}
+		&.quaternary {
+			.area-classe-mixin(@brand-quaternary-color; @brand-quaternary-text-color);
+		}
+		&.white {
+			.area-classe-mixin(@brand-white-color; @brand-black-color);
+		}
+		&.black {
+			.area-classe-mixin(@brand-black-color; @brand-white-color);
+		}
+	}	
+}
+.area-classe-mixin (@color; @contrast) {
+	background-color:@color;
+	& * { color:@contrast}
+	hr {
+		background-color: fade(@contrast,80%);
+		&:after {
+			background-color: fade(@contrast,80%);
+		}
+	}	
+}

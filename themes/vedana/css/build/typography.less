@@ -1,0 +1,199 @@
+// Body reset
+
+html {
+  font-size: 10px;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+  font-family: @font-family-base;
+  font-size: @body-type-font-size;
+  line-height: @line-height-base;
+  font-weight: @body-type-font-weight;
+  color: @body-type-color;
+}
+
+// From the C5 block 'page-title'
+h1.page-title {
+  font-size: @space-ms;
+  margin-bottom: @space-xxs;
+}
+
+// Headings
+// -------------------------
+
+h1, h2, h3, h4, h5, h6 {
+  small,.small {
+    font-weight: normal;
+    line-height: 1;
+    color: @headings-small-color;
+  }
+  // Explode all combination :
+  & + & {
+	line-height: 1.5;
+  }
+}
+
+h1,h2,h3 {
+  line-height:1;
+  margin-top:@space-ms;
+  
+  small,.small {font-size: 65%;}
+}
+h4,h5,h6 {
+  margin-top: @space-s;
+  margin-bottom: @space-s;
+  small,.small {font-size: 75%}
+  &+h1, &+h2, &+h3, &+hr, &+& {
+	margin-top:-@space-s;
+  }
+  & + p{
+    margin-top:0;
+  }  
+}
+h1 {
+	font-family: @h1-type-font-family;
+	color: @h1-type-color;
+	font-size: @h1-type-font-size;
+	font-weight: @h1-type-font-weight;	
+	margin-bottom:@space-l;
+	&+h2,&+h3,&+h4,&+h5,&+h6,&+hr,&+& {
+	margin-top:-@space-l/2;
+	}
+}
+h2 {
+	font-family: @h2-type-font-family;
+	color: @h2-type-color;
+	font-size: @h2-type-font-size;
+	font-weight: @h2-type-font-weight;	
+  margin-bottom:@space-m;
+  &+h1,&+h3,&+h4,&+h5,&+h6,&+hr,&+& {
+    margin-top:-@space-m/2;
+  }	
+}
+h3 {
+	font-family: @h3-type-font-family;
+	color: @h3-type-color;
+	font-size: @h3-type-font-size;
+	font-weight: @h3-type-font-weight;	
+  	margin-bottom:@space-s;
+  &+h1,&+h2,&+hr,&+&  {
+    margin-top:-@space-s/2;
+  }	
+}
+h4 {
+	font-family: @h4-type-font-family;
+	color: @h4-type-color;
+	font-size: @h4-type-font-size;
+	font-weight: @h4-type-font-weight;
+	text-transform: @h4-type-text-transform;
+}
+h5 {
+	font-family: @h5-type-font-family;
+	color: @h5-type-color;
+	font-size: @h5-type-font-size;
+	font-weight: @h5-type-font-weight;	
+	text-transform: @h5-type-text-transform;
+}
+h6 {
+	font-family: @h6-type-font-family;
+	color: @h6-type-color;
+	font-size: @h6-type-font-size;
+	font-weight: @h6-type-font-weight;	
+	text-transform: @h6-type-text-transform;
+}
+
+// -- Links
+
+a {
+  color: @link-color;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: @link-hover-color;
+    text-decoration: none;
+  }
+
+  &:focus {
+    .tab-focus();
+  }
+}
+
+// -- Super Anchor Hover style
+
+a.fun-anchor {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  vertical-align: bottom;
+  text-decoration: none;
+  white-space: nowrap;  
+  .transition(color 0.2s @ease-speed);
+  
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-color: @link-color;
+    content: '';
+    .transition(transform 0.2s @ease-speed);
+    .transform(translateY(95%));
+  }
+  
+  &:hover {
+    color: contrast(@link-color, @brand-black-color, @brand-white-color);
+    &:after {
+      .transform(translateY(0));
+    }
+  }
+}
+
+
+
+// quand un bouton est dans un H1, il est décalé vers le bas
+h1 a.pull-right,
+h1 a.pull-left {
+	line-height: 0;
+}
+
+.change-wheight {
+	font-weight: 300;
+	b,strong,em {
+		font-style: normal;
+		font-weight: 700;
+	}
+}
+
+.ved {
+
+  ::-moz-selection { 
+      color: @brand-primary-text-color;
+      background: fade(@brand-primary-color,80%);
+  }
+
+  ::selection {
+      color: @brand-primary-text-color;
+      background: fade(@brand-primary-color,80%);
+  }
+
+  .shadow {
+    text-shadow: 1px 1px 3px fade(@brand-black-color,80%);
+  }
+
+}
+// -- Some of custom Typography elements and tunning -- \\
+.loud {
+	color: @gray;
+	h1 + &,
+	h2 + &,
+	h3 + &,
+	h4 + &,
+	h5 + & {
+		margin-top: -1em;
+	}
+}

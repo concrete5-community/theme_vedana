@@ -1,0 +1,83 @@
+html, // Pour Safari mobile
+body {
+  // Ceci est necessaire pour empecher le scroll lateral dut aux effets
+  // translateX sur certain page-list
+  overflow-x: hidden;
+}
+
+.full-width {
+	width: 100%;
+}
+
+// This is only for communicating with Javascript
+.brand-primary {background-color: @brand-primary-color; color: @brand-primary-text-color}
+.brand-secondary {background-color: @brand-secondary-color; color: @brand-secondary-text-color}
+.brand-tertiary {background-color: @brand-tertiary-color; color: @brand-tertiary-text-color}
+.brand-quaternary {background-color: @brand-quaternary-color; color: @brand-quaternary-text-color}
+
+.collapse-top-margin > :first-child {
+  margin-top: 0;
+}
+
+
+// Pour enlever la marge des premiers titre
+// Risque de créer des mise en page étranges
+// * > :first-child { margin-top: 0}
+
+// Mettre hide-hover sur le parent ou l'élémént à cacher et to-hide sur l'element à cacher
+// <div class="hide-hover to-hide"></div>
+// ou
+// <div class="hide-hover"><div class="to-hide"></div></div>
+// mais le second ne marche pas
+.hide-hover {
+    &.to-hide, .to-hide {
+        .transition(opacity .3s);
+        z-index: 1 
+    }
+    &:hover {
+        .to-hide {
+           opacity: 0;
+        }
+    }    
+}
+
+.breadcrumb {
+  background-color: transparent;
+  padding: 0px;
+
+  a {
+    &:hover {
+    }
+  }
+
+}
+
+// -- Demo Logo color 
+.svg-quaternary .replaced-svg {
+  path {
+    fill: @brand-quaternary-text-color !important;
+  }
+  polygon {
+   fill: @brand-quaternary-color !important; 
+  }
+}
+.svg-primary .replaced-svg {
+  path {
+    fill: @brand-primary-text-color !important;
+  }
+  polygon {
+   fill: @brand-primary-color !important; 
+  }
+}
+
+
+// -- Height management -- //
+.height-large {
+    height: @space-l;
+}
+.height-medium {
+    height: @space-m;
+}
+.height-samll {
+    height: @space-s;
+}

@@ -1,0 +1,61 @@
+.hero {
+    display: inline-block;
+    position: relative;
+    color: @brand-quaternary-text-color;
+    background-color: @brand-quaternary-color;
+    height: 60px;
+    padding: 0 @space-m;
+    padding-top: @space-xxs;
+    text-align: center;
+    line-height: 1;
+    font-size: @space-ms;
+    &:before {
+        position: absolute;
+        left: -17px; top: 0;
+        .triangle-left-compressed( @brand-quaternary-color);
+    }
+    &:after {
+        position: absolute;
+        right: -17px; top: 0;
+        .triangle-right-compressed( @brand-quaternary-color);
+    }
+    strong {
+        font-weight: 300;
+        color: @brand-secondary-color;
+    }
+}
+
+// Decorative Header under elements :
+span.head-1, span.head-2, span.head-3 {
+    display: block;
+}
+.head-1, .head-2, .head-3 {
+    position: relative;
+    margin-bottom: @space-m;
+    &:after {
+        content: "";
+        position: absolute;
+        display: block;
+        left: 50%;
+        margin-left: -@space-xxl/2;
+        bottom: (-@space-s)+.3;
+    }
+}
+
+.head-1 {
+    &:before {
+        content: "";
+        position: absolute;
+        bottom: -@space-s;
+        height: 3px;
+        width: @space-ms;
+        left:50%;
+        margin-left: -@space-ms/2;
+        background-color: @brand-black-color;
+
+    }
+    &:after {
+        border-bottom: 1px solid @brand-black-color;
+        width: @space-xxl;
+    }
+}

@@ -1,0 +1,133 @@
+
+
+
+/* Medium devices (desktops, 992px and up) */
+  @media (min-width: 992px) and (max-width:1199px) {
+    .sliding-page.fixed .inner, .sliding-page.bottom .inner {width:293px} 
+    .macpro .wrapper a {
+      margin: 11% 9%;
+      height: 105px;
+      width: 51.5%;
+    } 
+  }
+/* Large devices (large desktops, 1200px and up) */
+  @media (min-width:1200px) {
+    .sliding-page.fixed .inner, .sliding-page.bottom .inner {width:360px}  
+  }
+
+  @media (max-width: 767px)  {
+
+    // -- Page List -- \\
+
+   .blog-page-list, .simple-page-list {
+    .thumb {
+          float: none;
+          width: 100%;
+        }    
+    .info {
+          margin-left: 0;
+       }    
+    .meta  {
+      h6 {
+        display: block;
+        margin: @space-xxs 0;
+        font-size: @body-type-font-size;
+      }
+      span {
+        display: none; // Mobile-first, no need extra infos
+      }
+    }    
+  }
+}
+
+// La ou les colonnes s'éffondrent
+  @media (max-width: 991px) {
+    
+    .ccm-image-slider-text, 
+    .ccm-intro-block {
+      p,h2,h3,h4,h5,h6 {
+        line-height: 1.2;
+        padding: @space-xxs;
+      }
+      
+    }
+
+    .sliding-page.fixed .inner, .sliding-page.bottom .inner {position: static;}
+
+    .glued-3 {width:49.99999%}
+  
+    .hero {
+      height: auto;
+      padding: @space-s;
+      &:before, &:after {display: none;}
+    }
+
+    // -- main-nav -- \\ 
+    .main-nav {
+      display: none;
+    }
+    .small-display-nav-bar-inner {
+      display: block;
+    }
+    // -- Top -- \\
+    .header-info, .header-social {
+      float: right;
+    }
+    .info-bar.with-blocks {
+      padding-top: 49px;
+      font-size: 10px;
+    }
+  
+    // -- Page List -- \\
+    .grid li {
+      width: 47.37%;
+    }
+
+
+    // -- Typography -- \\
+
+    h1 {
+      font-size: @h1-type-font-size / 1.5;
+    }
+    h2 {
+      font-size: @h2-type-font-size / 1.5;
+    }
+    h3 {
+      font-size: @h3-type-font-size / 1.5;
+    }    
+    h4 {
+      font-size: @h4-type-font-size / 1.5;
+    }
+    h5 {
+      font-size: @h5-type-font-size / 1.5;
+    }
+
+}
+
+/* Small devices (tablets, 768px and up) */
+  @media (min-width: 481px) and (max-width: 767px) {
+    .img-based {figure, .info {}}
+    .top-bar, #intro-content {margin-left: -@container-sm / 2 }
+    .img-date-based .date {
+      font-size: 24px;
+      height: auto;
+      top: -20px;      
+    }    
+  }
+  @media (min-width: 768px) and (max-width:991px) {
+     .glued-3 {
+      width:49.999%;
+    }
+  }
+
+// Les tout petits
+@media (max-width:480px) {
+    // -- Page List -- \\
+    .grid li {
+      width: 100%;
+      margin: 0;
+    }  
+  .glued-3 {width:100%}
+  #footer-bottom {&,* {text-align: center}}
+  .overlay {nav ul li a{font-size:30px}}
+}

@@ -1,0 +1,145 @@
+@preset-name: "Light";
+@preset-icon: concrete-icon(#95a5a6, #34495e, #495051);
+@preset-fonts-file: "build/fonts/light.less";
+
+// -- Global Page -- \\
+
+	// Page
+	@body-bg-color:               #ecf0f1;
+	@body-bg-pattern-image:       "../images/pattern/noise.png"; 
+	@content-bg-color: 			#fff;		
+	// Elements
+	@sidebar-bg-color: 				lighten(@body-bg-color, 2%);
+
+
+// -- Global color -- \\
+
+
+	@brand-primary-color : 		#95a5a6;
+	@brand-secondary-color : 	#34495e;
+	@brand-tertiary-color : 	#ecf0f1; // A light color 
+	@brand-quaternary-color : 	#495051; // A darker color
+
+	@brand-white-color: 			#ffffff;
+	@brand-black-color : 			#2c3e50;
+	@brand-grey-color : 			lighten(@brand-black-color, 50%);
+	@brand-light-color : 			darken(@body-bg-color,2%);
+//	@brand-light-color : 			hsl(hue(@body-bg-color),saturation(@body-bg-color),lightness(@body-bg-color)-5);
+
+	@brand-primary-text-color :  	contrast(@brand-primary-color, @brand-black-color, @brand-white-color);
+	@brand-secondary-text-color : 	contrast(@brand-secondary-color, @brand-black-color, @brand-white-color);
+	@brand-tertiary-text-color : 	contrast(@brand-tertiary-color, @brand-black-color, @brand-white-color);
+	@brand-quaternary-text-color : 	contrast(@brand-quaternary-color, @brand-black-color, @brand-white-color);
+
+	@brand-primary-light-color : 		hsl(hue(@brand-primary-color),saturation(@brand-primary-color),95%);
+	@brand-secondary-light-color : 		hsl(hue(@brand-secondary-color),saturation(@brand-secondary-color),95%);
+	@brand-tertiary-light-color : 		hsl(hue(@brand-tertiary-color),saturation(@brand-tertiary-color),95%);
+	@brand-quaternary-light-color : 	hsl(hue(@brand-quaternary-color),saturation(@brand-quaternary-color),95%);
+
+	@brand-success-color:         #5cb85c;
+	@brand-info-color:            #5bc0de;
+	@brand-warning-color:         #f0ad4e;
+	@brand-danger-color:          #d9534f;
+
+
+// -- Header -- \\
+
+
+// -- Typography -- \\
+
+	@body-type-font-family: "Roboto Slab", "Helvetica";
+	@body-type-color: 		@brand-black-color;
+	@body-type-font-size: 	1.3rem;
+	@body-type-font-weight: 300;
+	
+	// links
+	@link-color:            #342F42;
+	@link-hover-color:      darken(@link-color, 15%);
+
+
+	@h1-type-font-family: 'Raleway';
+	@h1-type-color: @brand-black-color; // #348e9d;
+	@h1-type-font-size: 60px;
+	@h1-type-font-weight: 300;
+
+	@h2-type-font-family: 'Raleway';
+	@h2-type-color: @brand-black-color; // #348e9d;
+	@h2-type-font-size: 42px;
+	@h2-type-font-weight: 300;
+
+	@h3-type-font-family: 'Raleway';
+	@h3-type-color: @brand-black-color; // #348e9d;
+	@h3-type-font-size: 37px;
+	@h3-type-font-weight: 300;
+
+	@h4-type-font-family: 'Raleway';
+	@h4-type-color: @brand-black-color; // #348e9d;
+	@h4-type-font-size: 26px;
+	@h4-type-font-weight: 400;
+	@h4-type-text-transform: uppercase;
+
+	@h5-type-font-family: 'Raleway';
+	@h5-type-color: @brand-black-color; // #348e9d;
+	@h5-type-font-size: 23px;
+	@h5-type-font-weight: 400;
+	@h5-type-text-transform: uppercase;
+
+	@h6-type-font-family: 'Raleway';
+	@h6-type-color: @brand-black-color; // #348e9d;
+	@h6-type-font-size: 16px;
+	@h6-type-font-weight: 400;
+	@h6-type-text-transform: uppercase;
+
+
+// -- Footer -- \\
+
+
+	// Backgrounds
+	@footer-top-background-color: 		@brand-quaternary-color;
+	@footer-bottom-background-color: 	@brand-tertiary-color;
+
+	// Text
+	@footer-top-text-color: 			contrast(@brand-primary-color, @brand-black-color, @brand-white-color);
+	@footer-bottom-text-color: 			contrast(@brand-tertiary-color, @brand-black-color, @brand-white-color);;
+
+	// Links
+	@footer-link-color: #75ca2a;
+	@footer-link-hover-color: #548627;
+
+	// Elements
+	@footer-section-divider-color: #d9d9d9;
+
+
+// -- Image slider -- \\
+	
+	@image-slider-max-height:500px; // Put to 0px to have a 100vh max-height
+
+	@image-slider-navigation-color: #ccccc9;
+	@image-slider-navigation-active-color: #75ca2a;
+
+	@image-slider-title-type-color: #75ca2a;
+	@image-slider-title-type-font-family: 'Raleway';
+	@image-slider-title-type-font-size: 3.2em;
+	@image-slider-title-type-font-weight: 200;
+
+	@image-slider-paragraph-type-color: #6e6e6e;
+	@image-slider-paragraph-type-font-family: 'Raleway';
+	@image-slider-paragraph-type-font-size: 1.1em;
+	@image-slider-paragraph-type-font-weight: 400;
+
+// -- Sizes ! -- \\
+
+	@space-xxs : .9rem;
+	@space-xs : 1.6rem;
+	@space-s : 2.3rem;
+	@space-ms : 3.7rem;
+	@space-m : 4.2rem;
+	@space-l : 6.0rem;
+	@space-xl : 9.7rem;
+	@space-xxl :15.7rem;
+
+	@line-height-base:        2; 
+	@line-height-computed:    floor((@font-size-base * @line-height-base)); // ~20px
+
+// -- Ease -- \\
+	 @ease-speed: cubic-bezier(.89,.05,.09,.99);

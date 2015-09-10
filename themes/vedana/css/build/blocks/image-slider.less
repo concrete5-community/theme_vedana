@@ -1,0 +1,143 @@
+.ccm-image-slider-container {
+
+  background-color: transparent;
+  background-repeat: repeat;
+  /* background-image is moved to main.less because it needs to be in the theme root */
+
+  .ccm-image-slider {
+  
+    .rslides {
+      li {
+        max-height: @image-slider-max-height;
+      li when (@image-slider-max-height = 0) {
+        max-height: 100vh;
+      }
+      }
+    }
+    .clearfix();
+  }
+
+  .ccm-image-slider-inner {
+    position: relative;
+  }
+
+
+  .ccm-image-slider-text {
+
+    .container(); // Prend les bonne largeurs
+
+    .into-columns & {
+      width: 100%;
+    }
+    
+    left: 50%;
+    top: 50%;
+    .transform(translate(-50%,50%) rotate(50deg)); // Ceci sera retabli a l'animation
+    .transform-origin(0);
+
+    h2 {
+      color: @brand-primary-text-color;
+      font-weight: 300;
+      margin:0;
+      padding:@space-s;
+      line-height: 1.1;
+      background-color: fade(@brand-primary-color,70%);
+    }
+
+    p {
+      color: @image-slider-paragraph-type-color;
+      font-family: @image-slider-paragraph-type-font-family;
+      font-size: @image-slider-paragraph-type-font-size;
+      font-weight: @image-slider-paragraph-type-font-weight;
+    }
+    p,h4,h5,h6 {
+      padding:@space-xs @space-s;
+      margin: 0;
+      color: @brand-quaternary-text-color;
+      background-color: fade(@brand-quaternary-color,70%);
+    }
+    
+    .transition(all .4s @ease-speed);
+
+  }
+
+  .rslides {
+    &1_on,
+    &2_on,
+    &3_on,
+    &4_on,
+    &5_on,
+
+     {
+      .ccm-image-slider-text {
+        // The right position
+        .transform(translate(-50%,-50%));
+      }
+    }
+  }
+
+  &.ccm-block-image-slider-arrows {
+    .ccm-image-slider-inner {
+      margin-bottom:0;
+    }
+  }
+
+}
+
+
+// -- Navigation Dots -- \\
+
+  .rslides_tabs {
+    padding-left: 0px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    text-align: center;
+    li {
+      list-style-type: none;
+      display: inline-block;
+      margin-right: 5px;
+      &.rslides_here {
+        a {
+          background: @brand-primary-color;
+        }
+      }
+      a {
+        overflow: hidden;
+        text-indent: 99px;
+        background: darken(@body-bg-color, 10%);
+        width: 15px;
+        height: 15px;
+        display: inline-block;
+        margin-right: 10px;
+        border-radius:30px;
+      }
+    }
+  }
+
+// -- Navigation Dots -- \\
+
+.rslides_nav {
+  opacity: 1;
+  height: 38px;
+  margin-top: -20px;
+  width: 38px;
+  color: @brand-primary-text-color !important;
+  background-color: @brand-primary-color !important;
+  &:hover {
+      opacity: .8;
+  }  
+  &.next {
+    .transition(background .35s ease-in-out);
+    right: 40px;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  &.prev {
+    .transition(background .35s ease-in-out);
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  background:rgba(0,0,0,.92);
+}

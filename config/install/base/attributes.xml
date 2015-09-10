@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<concrete5-cif version="1.0">
+    <attributekeys>
+        <attributekey handle="vedana_youtube_backround_url" name="Youtube Header URL" package="theme_vedana" searchable="0" indexed="0" type="text" category="collection"/>
+        <attributekey handle="thumbnail" name="Thumbnail" package="theme_vedana" searchable="1" indexed="1" type="image_file" category="collection"/>
+        <attributekey handle="vedana_header_image" name="Vedana Header Image" package="theme_vedana" searchable="0" indexed="1" type="image_file" category="collection"/>
+        <attributekey handle="boxed_layout_mode" name="Boxed Layout Mode" package="theme_vedana" searchable="0" indexed="0" type="boolean" category="collection"/>        
+        <attributekey handle="vedana_number_of_main_areas" name="Number of main areas" package="theme_vedana" searchable="0" indexed="1"
+                      type="select" category="collection">
+            <type allow-multiple-values="0" display-order="display_asc" allow-other-values="0">
+                <options>
+                    <option value="2" is-end-user-added="0"/>
+                    <option value="3" is-end-user-added="0"/>
+                    <option value="4" is-end-user-added="0"/>
+                    <option value="5" is-end-user-added="0"/>
+                    <option value="6" is-end-user-added="0"/>
+                    <option value="7" is-end-user-added="0"/>
+                </options>
+            </type>
+        </attributekey>
+
+    </attributekeys>
+    <attributesets>
+        <attributeset handle="vedana_theme" name="Theme Vedana" package="theme_vedana" locked="0" category="collection">
+            <attributekey handle="vedana_youtube_backround_url"/>
+            <attributekey handle="vedana_number_of_main_areas"/>
+            <attributekey handle="thumbnail"/>
+            <attributekey handle="vedana_header_image"/>            
+            <attributekey handle="boxed_layout_mode"/>            
+        </attributeset>
+    </attributesets>
+</concrete5-cif>

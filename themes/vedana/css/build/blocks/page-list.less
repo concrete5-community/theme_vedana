@@ -1,0 +1,245 @@
+// TODO : Move thios to a better place 
+.glued-3 {
+	width: 33.3333333%;
+	float: left;	
+}
+.grid-sizer {
+	margin-bottom: 0 !important;
+}
+
+// TODO : LE css Bootstrap breadcrumb fait déjà bcp de ceci
+// cursor: changer la classe .tag par breadcrumb
+.tag {
+	font-size: 1.2rem;
+	display: inline-block;
+	padding: 3px @space-s/4 3px 0;
+	+ &:before {
+		content: "|";
+		display: inline-block;
+		padding:0 @space-s/4;
+	}
+}
+
+// -- Le template classic de ce block -- \\
+
+.ccm-block-page-list-page-entry-horizontal {
+	.ccm-block-page-list-date {
+		color: @brand-grey-color;
+		text-transform: uppercase;
+	}
+}
+
+// -- Template Vedana Simple -- \\
+
+.simple-page-list {
+	.thumb {
+		display: block;
+		width:25.3846%;
+		float: left;
+		img{
+			max-width: 100%;
+		}
+	}
+	.info {
+		margin-left: 30%; // 25.3846 + 4.6153
+		margin-bottom: @space-s;
+
+
+	}
+	h3,h6 {
+		margin: 0;
+	}
+	h6 {
+		margin: @space-xs 0 @space-xxs 0;		
+		color: @brand-secondary-color;
+	}
+
+	// -- Animations
+	.item {
+		.info, .thumb{
+			.transition(all .5s @ease-speed);
+			opacity: 0;			
+		}
+		.info {
+			.transform(translateX(50vh));
+		}
+		.thumb {
+			.transform(translateX(-50vh));
+		}
+		&.view, .edit-mode &  {
+			.info {
+				.transform(translateX(0));
+				opacity: 1;			
+			}
+			.thumb {
+				.transform(translateX(0));
+				opacity: 1;
+			}
+		}
+	}
+	.simple-block & {
+		.item {
+			background-color: @brand-light-color;
+			padding: @space-s;
+			margin-bottom: @space-s;
+		}
+		h3 {
+			font-size: @h4-type-font-size;
+		}
+		h3,p {
+			color: @brand-black-color !important; // Si jamais le block est dans une Area de classe .primary ou autre
+		}
+	}
+}
+
+// -- Template Blog, herité de Vedan aSimple -- \\
+
+.blog-page-list {
+	.meta {
+
+		span, h6 {
+			display: inline-block;
+		}
+		span {
+			font-size: 1.3rem;
+		}
+	}
+	& .item:last-child {
+		display: none;
+	}
+
+	// -- Animations
+	.thumb, .info {
+		opacity: 0;
+		.transition(all .4s ease);
+	}
+	.thumb {.transform(translateX(-200%))}
+	.info { .transform(translateY(100%))}
+	
+	.view {
+		.thumb, .info {
+			opacity: 1;
+			.transform(translateX(0));
+			.transform(translateY(0));
+		}
+	}
+}
+
+.ved-list-block { // la galerie affichée dans la page (pas le slideshow)
+
+	figcaption {
+		.transition(background-color .2s ease);
+		background-color: @brand-light-color;
+	}
+
+	.date {
+		display: inline-block;
+		position: relative;
+		float: right;
+		margin: -@space-xxs -@space-xxs 0 0;
+		padding: 0 @space-xxs 0 @space-xxs;
+		top: 0;
+		right: 17px;
+		background-color: @brand-secondary-color;
+		color: @brand-secondary-text-color;
+		&:after {
+			.triangle-bottom-left(@space-xxs,@brand-secondary-color);
+			position: absolute;
+			top:0;
+			right: -@space-xxs;
+		}
+	}
+	.title {
+		padding: @space-s 0 0 @space-m;
+		margin: 0;
+	}
+	p {
+		padding: 0 @space-xxs @space-s @space-m;
+	}
+	hr {
+		margin: @space-xxs 0;
+	}
+	.item:hover figcaption {
+		background-color: darken( @brand-light-color,5%);
+	}
+
+	// -- Animations
+	.item {
+		.transition(all .5s @ease-speed);
+		opacity: 0;
+		&.view, .edit-mode & {
+			opacity: 1;
+		}
+
+		&.pair {
+			.transform(translateX(@space-l));
+				&.view {
+					.transform(translateX(0));
+				}
+		}
+		&.impair {
+			.transform(translateY(@space-l));
+				&.view {
+					.transform(translateY(0));
+				}
+		}
+
+	}
+
+}
+.macpro {
+	.wrapper {
+		min-height: 190px;
+		margin: 0 -5px;
+		background-image: url(../../../images/mac/mac.png);
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: 50%;
+
+		a {
+			position: absolute;
+			margin: 4.8% 10%;
+			width: 55%;
+			height: 136px;
+			.transition (all .2s ease-out);
+			overflow: hidden;
+			z-index: 1;
+			img {
+				max-width: 100%;
+			}
+		}
+		&:hover img {
+			top: -50px; 
+		}
+	}
+	.date {
+		position: absolute;
+		top: 1px;
+		right: 101px;
+		z-index: 2;
+	}
+	&.with-info {}
+}
+.macpro .columns {
+	min-height: 390px; 
+}
+
+// -- Override C5 Pagination from Bootstrap -- \\
+.ccm-pagination-wrapper {
+	text-align: center;
+	ul.pagination {
+		li > span, li > a {
+			border: 1px solid transparent !important;
+			border-radius: 0 !important;
+		}
+		li > a {
+			color: @brand-primary-color;
+		}
+		li.active > span{
+			background-color: @brand-primary-color;
+		}
+		.pagination>li>a:hover, .pagination>li>span:hover, .pagination>li>a:focus, .pagination>li>span:focus {
+			background-color: @brand-light-color;
+		}
+	}
+}

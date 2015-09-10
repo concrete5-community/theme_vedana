@@ -1,0 +1,51 @@
+
+// -- HR tag -- \\
+// Les classe se trouve POUR les HR (hr.class)
+// ainsi que pour les style de bloc (div.class > hr)
+
+hr {
+    position: relative;
+    border: 0;
+    height: 1px;
+    margin: (@space-l / 2)-.1 auto (@space-l / 2) auto;  // 60px height
+    background-color: @brand-grey-color;
+
+    &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: @space-ms;
+        height: 3px;
+        background-color: @brand-black-color;
+    }
+
+    &.primary, .primary & { background: @brand-primary-color }
+    &.secondary, .secondary & { background: @brand-secondary-color }
+    &.tertiary, .tertiary & { background: @brand-tertiary-color }
+    &.quaternary, .quaternary & { background: @brand-quaternary-color }
+
+    &.thin, .thin & {
+        background: darken(@brand-tertiary-color,5%);
+        height:1px;
+    }
+    &.dotted, .dotted & {
+         border-bottom-style:dotted;
+    }
+    &.space-s, &.space-m, &.space-l, &.space-xl, .space-s &, .space-m &, .space-l &, .space-xl & {
+        background: none !important;
+        border: none !important;
+        &:after {display: none;}
+    }
+    &.space-s, .space-s & { margin: @space-s/2 auto (@space-s/2)-1 auto }  
+    &.space-m, .space-m & {} // Inherit from default
+    &.space-l, .space-l & { margin: @space-l auto (@space-l)-1 auto}
+    &.space-xl, .space-xl & { margin: @space-xl auto (@space-xl)-1 auto}
+}
+
+// HR under elements
+.hr-bold {
+    padding-bottom: 25px;
+    margin-bottom: 24px;
+    border-bottom: 5px solid @brand-grey-color;
+}
