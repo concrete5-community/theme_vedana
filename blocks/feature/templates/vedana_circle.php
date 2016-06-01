@@ -1,7 +1,7 @@
 <?php  defined('C5_EXECUTE') or die("Access Denied."); ?>
 <div class="feature-circle feature-item ">
 	<div class="icon detect">
-		<i class="fa fa-<?php echo $icon?> fa-4x primary fa-align-center"></i>	
+		<i class="fa fa-<?php echo $icon?> fa-4x primary"></i>	
 	</div>
 
     <?php if ($title) { ?>
