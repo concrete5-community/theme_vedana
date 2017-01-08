@@ -6,7 +6,7 @@ defined('C5_EXECUTE') or die('Access Denied.');
 class PageTheme extends \Concrete\Core\Page\Theme\Theme  {
 
 	public function registerAssets() {
-         
+
         $this->requireAsset('javascript', 'jquery');
         $this->requireAsset('javascript', 'modernizr');
         $this->requireAsset('javascript', 'classie');
@@ -19,12 +19,12 @@ class PageTheme extends \Concrete\Core\Page\Theme\Theme  {
         $this->requireAsset('javascript', 'imagesloaded');
         $this->requireAsset('javascript', 'gridgallery');
         $this->requireAsset('javascript', 'autohidingnavbar');
-        $this->requireAsset('javascript', 'YTPlayer');        
+        $this->requireAsset('javascript', 'YTPlayer');
         $this->requireAsset('javascript', 'vedana.script');
-        
+
 
         $this->requireAsset('css', 'font-awesome');
-        $this->requireAsset('css', 'YTPlayer');        
+        $this->requireAsset('css', 'YTPlayer');
         $this->requireAsset('css', 'bootsrap-custom');
 	}
 
@@ -45,13 +45,13 @@ class PageTheme extends \Concrete\Core\Page\Theme\Theme  {
             'core_stack_display' => array('accordion-primary','accordion-secondary','accordion-tertiary','accordion-quaternary','accordion-light')
         );
     }
-    
+
     public function getThemeAreaClasses()
     {
         // For multiple area
         $main_area = array('Main');
         $area_classes = array('primary','secondary','tertiary','quaternary','white','black');
-        for ($i=1; $i < 8; $i++) { 
+        for ($i=1; $i < 8; $i++) {
             $main_area['Main - ' . $i] = $area_classes;
         }
         // Default array
@@ -84,7 +84,7 @@ class PageTheme extends \Concrete\Core\Page\Theme\Theme  {
             array('title' => t('Code'), 'menuClass' => '', 'spanClass' => 'code')
         );
     }
-    
+
     public function getThemeResponsiveImageMap()
     {
         return array(
@@ -93,4 +93,17 @@ class PageTheme extends \Concrete\Core\Page\Theme\Theme  {
             'small' => '0'
         );
     }
+		
+		public function nl2p($string)
+		{
+		    $paragraphs = '';
+
+		    foreach (explode("\n", $string) as $line) {
+		        if (trim($line)) {
+		            $paragraphs .= '<p>' . $line . '</p>';
+		        }
+		    }
+
+		    return $paragraphs;
+		}
 }
